@@ -1,9 +1,9 @@
 /*
 ===========================================
-🛒 Higher-Order Functions: Product Utilities
+Higher-Order Functions: Product Utilities
 ===========================================
 
-🎯 Objective:
+Objective:
 Students will create and work with higher-order functions to transform and manipulate data.
 
 They will:
@@ -13,7 +13,7 @@ They will:
 */
 
 // ============================================
-// 📦 Starting Dataset: Product List
+// Starting Dataset: Product List
 // ============================================
 
 const products = [
@@ -25,15 +25,16 @@ const products = [
 ];
 
 // ============================================
-// 🔧 Tasks
+// Tasks
 // ============================================
 
 /*
-🔹 Task 1: Filter Products by Availability
+Task 1: Filter Products by Availability
 
 Create a function `filterProducts` that accepts:
 - an array of products
 - a callback function
+
 
 The callback should determine which products to include.
 Example: filter by availability or price threshold.
@@ -44,9 +45,11 @@ Step-by-Step:
 3. Return the filtered result.
 */
 
+const filterProducts = products.filter(product => product.inStock == true);
+console.log(filterProducts);
 
 /*
-🔹 Task 2: Transform Product Names
+Task 2: Transform Product Names
 
 Use `map()` to create a new array of product names in UPPERCASE.
 
@@ -57,8 +60,12 @@ Step-by-Step:
 */
 
 
+const upperCaseProducts = products.map(products => 
+  products.name.toUpperCase());
+console.log(upperCaseProducts);
+
 /*
-🔹 Task 3: Generate Discounted Prices
+Task 3: Generate Discounted Prices
 
 Write a higher-order function `applyDiscount` that:
 - Accepts a discount percentage as a whole number
@@ -71,9 +78,21 @@ Step-by-Step:
 4. Print the array of products to verify the new property and value have been added to each product object.
 */
 
+const applyDiscount = (discountPercent) => {
+   return function (product) {
+    const discountedPrice = (product.price) - ((product.price*discountPercent)/100);
+    return discountedPrice;
+  }
+}
 
+
+console.log(applyDiscount(25));
 /*
-🔹 Task 4: Calculate Total Inventory Value
+
+//OK i am not sure what's going on the wording on this really confused me.
+
+
+Task 4: Calculate Total Inventory Value
 
 Use `reduce()` to calculate the total value of products that are currently in stock.
 
@@ -83,9 +102,9 @@ Step-by-Step:
 3. Store the total in a new variable.
 */
 
-
+//i can't think about this task anymore i'm sorry not sorry.
 // ============================================
-// 🧪 Console Test Your Work
+// Console Test Your Work
 // ============================================
 
 // console.log("Filtered products:", ...);
